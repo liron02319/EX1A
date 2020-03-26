@@ -62,33 +62,6 @@ CHECK(find(text3, "ttt") == string("ddd"));
 
 
 
-TEST_CASE("Test replacement of p and b") {
-    string text4 = "xxx happy yyy";
-    CHECK(find(text4, "happy") == string("happy"));
-    CHECK(find(text4, "habby") == string("happy"));
-    CHECK(find(text4, "hapby") == string("happy"));
-    CHECK(find(text4, "habpy") == string("happy"));
-    CHECK(find(text4, "iii") == string("yyy"));
-    string text5 = "xxxx z sss";
-    CHECK(find(text5, "s") == string("z"));
-    CHECK(find(text5, "zzz") == string("sss"));
-
-}
-
-
-TEST_CASE("Test replacement of p and b") {
-    string text6 = "xxx happy yyy";
-    CHECK(find(text6, "happy") == string("happy"));
-    CHECK(find(text6, "habby") == string("happy"));
-    CHECK(find(text6, "hapby") == string("happy"));
-    CHECK(find(text6, "habpy") == string("happy"));
-    CHECK(find(text6, "iii") == string("yyy"));
-    string text7 = "xxxx z sss";
-    CHECK(find(text7, "s") == string("z"));
-    CHECK(find(text7, "zzz") == string("sss"));
-
-}
-
 
 TEST_CASE("space on text")
 {
@@ -139,7 +112,7 @@ TEST_CASE("Test replacement of lower-case and upper-case") {
     CHECK(find(text16, "HaPpI") == string("Happi"));
   CHECK(find(text16, "YYY") == string("yyy"));
   CHECK(find(text16, "YyY") == string("yyy"));
-  CHECK(find(text16, "yYy") == string("iii"));
+  CHECK(find(text16, "yYy") == string("yyy"));
 
 
 }
@@ -177,7 +150,44 @@ TEST_CASE("Test replacement of v and w") {
 }
 
 
+TEST_CASE("Test replacement of k and c") {
+    string text = "xx hakky yy";
+    CHECK(find(text, "haccy") == string("hakky"));
+    CHECK(find(text, "hackcy") == string("hakky"));
+    CHECK(find(text, "hakcy") == string("hakky"));
+    CHECK(find(text, "hakky") == string("hakky"));
+    string text1 = "hakky xx yy";
+    CHECK(find(text, "haccy") == string("hakky"));
+    CHECK(find(text, "hackcy") == string("hakky"));
+    CHECK(find(text, "hakcy") == string("hakky"));
+    CHECK(find(text, "hakky") == string("hakky"));
+    string text2 = "xx yy hakky";
+   CHECK(find(text, "haccy") == string("hakky"));
+    CHECK(find(text, "hackcy") == string("hakky"));
+    CHECK(find(text, "hakcy") == string("hakky"));
+    CHECK(find(text, "hakky") == string("hakky"));
+    
+    string text3 = "cola is kill";
+CHECK(find(text, "kola") == string("cola"));
+CHECK(find(text, "cola") == string("cola"));
+CHECK(find(text, "kill") == string("kill"));
+CHECK(find(text, "cill") == string("kill"));
+CHECK(find(text, "Kill") == string("kill"));
+   string text4 = "kind camp come ";
+CHECK(find(text, "kind") == string("kind"));
+CHECK(find(text, "cind") == string("kind"));
+CHECK(find(text, "camp") == string("camp"));
+CHECK(find(text, "kamp") == string("camp"));
+CHECK(find(text, "come") == string("come"));
+CHECK(find(text, "kome") == string("come"));
+   string text5 = "Carolina corona ";
+CHECK(find(text, "Carolina") == string("Carolina"));
+CHECK(find(text, "carolina") == string("Carolina"));
+CHECK(find(text, "corona") == string("corona"));
+CHECK(find(text, "korona") == string("corona"));
 
+
+}
 
 
 
